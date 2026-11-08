@@ -1,0 +1,26 @@
+﻿@model UniversityCafeteria.Models.DatabaseFirst.Category
+
+<h2>Add New Category</h2>
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name,
+            new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description,
+            new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Save
+    </button>
+}
